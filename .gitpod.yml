@@ -1,0 +1,5 @@
+tasks:
+  - name: install-dependencies
+    init: |
+      yarn install
+      exit
