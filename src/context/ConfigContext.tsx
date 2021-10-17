@@ -8,20 +8,6 @@ export interface Config {
 }
 
 /**
- * Validates the given config ensuring that it is filled with valid values.
- *
- * @param config config to be validated
- */
-const validateConfig = (config: Config) => {
-  if (config === undefined) {
-    throw Error("config is undefined");
-  }
-  if (config.ENVIRONMENT === undefined || config.ENVIRONMENT === "") {
-    throw Error("config.ENVIRONMENT is undefined");
-  }
-};
-
-/**
  * Loads the config.json file and validates it.
  * The config.json file is expected to be available at the root url.
  *
@@ -31,8 +17,6 @@ export const loadConfig = async () => {
   const response = await fetch("/config.json");
 
   const config: Config = await response.json();
-
-  validateConfig(config);
 
   return config;
 };
