@@ -22,20 +22,18 @@ export const loadConfig = async () => {
 };
 
 /**
- * Context to provide the config to the app
+ * Context to provide the config to the app with default values
  */
 export const ConfigContext = React.createContext<Config>({
   ENVIRONMENT: "development",
 });
 
 interface ConfigContextProviderProps {
-  /**
-   * The elements wrapped by the auth context.
-   */
   children: JSX.Element;
   config: Config;
 }
 
+// Create the context provider which can be diretly used in the JSX
 export const ConfigContextProvider = (props: ConfigContextProviderProps) => {
   return (
     <ConfigContext.Provider value={props.config}>
